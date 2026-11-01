@@ -9,7 +9,7 @@ function isStatus(value: unknown): value is RunStatus {
 }
 
 // Parse one line at the edge. Anything that is not a well-formed RunLine gives null.
-function parseLine(text: string): RunLine | null {
+export function parseLine(text: string): RunLine | null {
   let value: unknown;
   try {
     value = JSON.parse(text);
@@ -26,7 +26,7 @@ function parseLine(text: string): RunLine | null {
   return line;
 }
 
-function readText(path: string): string | null {
+export function readText(path: string): string | null {
   try {
     return readFileSync(path, 'utf8');
   } catch (err) {
