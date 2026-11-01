@@ -17,6 +17,20 @@ Read first: `docs/vision.md`, `docs/styleguide.md`. Decisions: `docs/adr/`.
 2. The plan is split into GitHub issues: skill `plan-to-issues` (`.agents/skills/`). A human
    reviews the split before anything is published. GitHub issues out of reach: files in
    `docs/issues/` (ADR 0004).
+   Every issue carries this shape (approved by the repo owner, 2026-11-01), labelled
+   `plan:<plan name>`:
+
+   ```
+   Source: plan.md § <n>
+
+   Scope: <what to change, which files>
+   Done when: <the plan's check, word for word>
+   Blocked by: <#n or —>
+   Model: <strongest for logic, cheaper for views, tests and ops>
+   ```
+
+   An issue that waits on someone outside the repo (a reviewer, a host) says so in "Blocked by"
+   and stays open until they confirm. A sent link is not a reviewed one.
 3. Issues are worked by workers, one issue per worker, each on its own branch or worktree.
    Pick the model per issue: the strongest for logic, a cheaper one for views and tests.
 4. A worker closes its issue with a closing comment, exactly this shape:
